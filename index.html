@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Halloween 🎃</title>
+    <!-- fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lacquer&family=Metal+Mania&display=swap" rel="stylesheet">
+<style>
+        body{
+            margin: 0;
+            height: 100vh;
+            width: 100vw;
+            overflow-x: hidden;
+            background-color: black;
+            font-family: "Lacquer", system-ui;
+        }
+        .top{
+            height: 90vh;
+            background-image: url('https://images.unsplash.com/photo-1508931133503-b1944a4ecdd5?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        ul{
+            list-style-type: none;
+            color: white;
+            display: flex;
+        }
+        .navbar{
+            top: 0;
+            position: absolute;
+            width: 100%;
+            justify-content: space-between;
+            font-size: 1.4em;
+        }
+        .nav_links{
+            width: 50%;
+            justify-content: space-evenly;
+            cursor: pointer;
+            transition: color .3s ease;
+        }
+        .nav_links li:hover{
+            color: orange;
+        }
+        h1{
+            margin:0;
+            font-family: "Metal Mania", system-ui;
+            letter-spacing: .2em;
+            color: orange;
+            font-size: 5em;
+        }
+        .intro{
+            width: 100%;
+            height: 90vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            background-color: rgba(0, 0, 0, 0.425);
+        }
+        .button{
+            border: orange solid 1px;
+            padding: 1% 2%;
+            border-radius: 100px;
+            color: white;
+            cursor: pointer;
+            transition: .3s ease;
+        }
+        .button:hover, .cta:hover{
+            background-color: black;
+            color: orange;
+        }
+        .main{
+            padding-bottom: 10%;
+        }
+        .shop_top{
+            margin-top: 10%;
+            width: 90%;
+            justify-content: space-between;
+        }
+        .sort{
+            display: flex;
+        }
+        .sort_o{
+            margin-left: 10px;
+            border: solid 1.5px;
+            border-radius: 10px;
+            padding: 0% 10px;
+        }
+        .shop_main{
+            margin-top: 5%;
+            width: 100vw;
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+            column-gap: 20px;
+            color: white;
+        }
+        .series{
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+        }
+        .series img{
+            width: 250px;
+            height: 350px;
+        }
+        .title{
+            font-size: 1.2em;
+            border-bottom: solid 1px;
+            text-align: center;
+            padding-bottom: 5%;
+            margin-bottom: 1%;
+        }
+        .caption{
+            width: 250px;
+        }
+        .caption_capt{
+            display: flex;
+            justify-content: space-between;
+        }
+        .cta{
+            text-align: center;
+            background-color: rgb(209, 113, 3);
+            padding: 2%;
+            border: rgb(209, 113, 3) solid 1px;
+            cursor: pointer;
+            transition: .3s ease;
+        }
+        footer{
+            border-top: solid white 1px;
+            padding: 5%;
+            color: white;
+        }
+        .end{
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+        }
+        .floaty{
+            position: absolute;
+        }
+        .p1, .o2{
+            bottom:5%;
+            left: 2%;
+        }
+        .o1, .p2{
+            bottom:5%;
+            right: 2%;
+        }
+    </style>
+</head>
+<body>
+    <div class="top">
+        <ul class="navbar">
+            <li>TRICKERY</li>
+            <ul class="nav_links">
+                <li>Catalog</li>
+                <li>Cart</li>
+                <li>Account</li>
+            </ul>
+        </ul>
+        <div class="intro">
+            <h1>Trick - Or - Treat</h1>
+            <p class="button">Knock The Door</p>
+        </div>
+        <img class="floaty o1" src="https://www.svgrepo.com/show/454285/halloween-horror-owl.svg" width="200">
+        <img class="floaty p1" src="https://www.svgrepo.com/show/454273/halloween-horror-pumpkin.svg" width="200">
+        <img class="floaty o2" src="https://www.svgrepo.com/show/454285/halloween-horror-owl.svg" width="100">
+        <img class="floaty p2" src="https://www.svgrepo.com/show/454273/halloween-horror-pumpkin.svg" width="100">
+    </div>
+    <div class="main">
+        <ul class="shop_top">
+            <li>Haunting Tales</li>
+            <li class="sort">Sort By: <div class="sort_o">Popular</div></li>
+        </ul>
+        <div class="shop_main">
+            <div class="series">
+                <img src="https://m.media-amazon.com/images/I/510z-lT+0KL._SY445_SX342_.jpg">
+                <div class="caption">
+                    <h4 class="title">Scary Stories In The Dark</h4>
+                    <div class="caption_capt">
+                        <p class="author">Alvin Schwartz</p>
+                        <p class="number">3 book series</p>
+                    </div>
+                    <div class="cta">Bookmark</div>
+                </div>
+            </div>
+            <div class="series">
+                <img src="https://m.media-amazon.com/images/I/71fIELJXtYL._SL1200_.jpg">
+                <div class="caption">
+                    <h4 class="title">Goosebumps</h4>
+                    <div class="caption_capt">
+                        <p class="author">R. L. Stine</p>
+                        <p class="number">62 book series</p>
+                    </div>
+                    <div class="cta">Bookmark</div>
+                </div>
+            </div>
+            <div class="series">
+                <img src="https://m.media-amazon.com/images/I/51+m0dF3sRL._SY445_SX342_.jpg">
+                <div class="caption">
+                    <h4 class="title">The Shining</h4>
+                    <div class="caption_capt">
+                        <p class="author">Stephen King</p>
+                        <p class="number">3 book series</p>
+                    </div>
+                    <div class="cta">Bookmark</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div class="end">
+            <p>Careers</p>
+            <p>Telephone:<br/>123-456-789</p>
+        </div>
+        <div class="end">
+            <p>Legal Team</p>
+            <p>Fax:<br/>123-456-789</p>
+        </div>
+        <div class="end">
+            <p>Contact</p>
+            <p>All Rights Reserved. &copy; TRICKERY 2024</p>
+        </div>
+    </footer>
+
+</body>
+</html>

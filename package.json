@@ -1,0 +1,27 @@
+{
+  "name": "medp-33100-week9",
+  "version": "1.0.0",
+  "description": "node js server",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JudyZhang05/medp-33100-week9.git"
+  },
+  "keywords": [
+    "nodejs",
+    "server"
+  ],
+  "author": "judyz1594@gmail.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JudyZhang05/medp-33100-week9/issues"
+  },
+  "homepage": "https://github.com/JudyZhang05/medp-33100-week9#readme",
+  "dependencies": {
+    "http": "^0.0.1-security"
+  }
+}
