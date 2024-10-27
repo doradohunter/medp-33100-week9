@@ -1,0 +1,19 @@
+{
+  "name": "rw-medp-33100-week9",
+  "version": "1.0.0",
+  "description": "node.js server for week 9 hw",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "node.js",
+    "server"
+  ],
+  "author": "Rochelle Williams",
+  "license": "ISC",
+  "dependencies": {
+    "http": "^0.0.1-security"
+  }
+}
