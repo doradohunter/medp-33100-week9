@@ -1,48 +1,35 @@
-// Import the HTTP module
 const http = require('http');
+const fs = require('fs');
+const path = require('path');
 
-// Define the server and the response
 const server = http.createServer((req, res) => {
-  res.writeHead(200, { 'Content-Type': 'text/html' });
-  
-  // Halloween themed HTML content
-  res.end(`
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>Halloween Spooktacular 🎃</title>
-      <style>
-        body {
-          background-color: black;
-          color: orange;
-          font-family: Arial, sans-serif;
-          text-align: center;
-          padding: 50px;
-        }
-        h1 {
-          font-size: 3em;
-        }
-        p {
-          font-size: 1.5em;
-        }
-        .pumpkin {
-          font-size: 5em;
-        }
-      </style>
-    </head>
-    <body>
-      <div class="pumpkin">🎃</div>
-      <h1>Welcome to the Halloween Spooktacular!</h1>
-      <p>Beware... things go bump in the night 👻</p>
-    </body>
-    </html>
-  `);
+    if (req.url === '/') {
+        fs.readFile(path.join(__dirname, 'index.html'), (err, data) => {
+            if (err) {
+                res.writeHead(500, { 'Content-Type': 'text/plain' });
+                res.end('500 - Internal Server Error');
+            } else {
+                res.writeHead(200, { 'Content-Type': 'text/html' });
+                res.end(data);
+            }
+        });
+    } else if (req.url === '/petsphoto.jpg') {
+        fs.readFile(path.join(__dirname, 'petsphoto.jpg'), (err, data) => {
+            if (err) {
+                res.writeHead(404, { 'Content-Type': 'text/plain' });
+                res.end('404 - Image Not Found');
+            } else {
+                res.writeHead(200, { 'Content-Type': 'image/jpeg' });
+                res.end(data);
+            }
+        });
+    } else {
+        res.writeHead(404, { 'Content-Type': 'text/plain' });
+        res.end('404 - Not Found');
+    }
 });
 
-// Set the server to listen on port 3000
 const PORT = 3000;
 server.listen(PORT, () => {
-  console.log(`Server is running on http://localhost:${PORT}`);
+    console.log(`Server is running at http://localhost:${PORT}`);
 });
