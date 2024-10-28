@@ -1,0 +1,15 @@
+{
+  "name": "medp-33100-week9",
+  "version": "1.0.0",
+  "description": "week9 hw",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "http": "^0.0.0"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

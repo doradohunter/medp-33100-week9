@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Halloween!</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Courier New', Courier, monospace;
+            background-color: #1e1e1e;
+            color: #ff7518;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .container {
+            text-align: center;
+            animation: flicker 1.5s infinite;
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 1.5rem;
+            margin-bottom: 40px;
+        }
+
+        .ghost {
+            font-size: 5rem;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 1.2rem;
+            background-color: #ff7518;
+            color: #1e1e1e;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #ffaf5f;
+        }
+
+        .treat {
+            position: absolute;
+            font-size: 2rem;
+            animation: floating 2s ease-in-out forwards;
+            pointer-events: none; 
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0); }
+        }
+
+        @keyframes flicker {
+            0%, 18%, 22%, 25%, 53%, 57%, 100% {
+                opacity: 1;
+            }
+            20%, 24%, 55% {
+                opacity: 0.5;
+            }
+        }
+
+        @keyframes floating {
+            0% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+            100% {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎃 Happy Halloween! 🎃</h1>
+        <p>Welcome...</p>
+        <div class="ghost">👻</div>
+        <button id="scareButton">Trick or Treat?</button>
+    </div>
+
+</body>
+</html>
+
+<script>
+    document.getElementById("scareButton").addEventListener("click", function() {
+    const treats = ["🍬", "🍫", "🍭", "🍎", "🍪", "🎃", "👻"];
+    const randomTreat = treats[Math.floor(Math.random() * treats.length)];
+
+    for (let i = 0; i < 10; i++) {
+            const treatElement = document.createElement("span");
+            treatElement.textContent = randomTreat;
+            treatElement.classList.add("treat");
+
+            treatElement.style.left = Math.random() * 100 + "vw";
+            treatElement.style.top = Math.random() * 100 + "vh";
+
+            document.body.appendChild(treatElement);
+
+            setTimeout(() => {
+                treatElement.remove();
+            }, 2000);
+        }
+    });
+</script>
+
