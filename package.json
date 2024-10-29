@@ -1,0 +1,15 @@
+{
+  "name": "medp-33100-week9",
+  "version": "1.0.0",
+  "description": "week 9 hw_my first server",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "alexandra.ernest49@myhunter.cuny.edu",
+  "license": "ISC",
+  "dependencies": {
+    "http": "^0.0.1-security"
+  }
+}
