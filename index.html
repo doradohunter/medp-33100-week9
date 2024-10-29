@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Week 7</title>
+    <link href="https://fonts.googleapis.com/css?family=Comforta" rel="stylesheet">
+</head>
+
+<body>
+    <h1>The DigiDatabase (Halloween Edition)
+    </h1>
+    <h1>
+        <form id='nameForm'>
+            <label for="diginame">Enter the name of a Digimon:</label><br><br>
+            <input type="text" id="diginame" name="diginame" placeholder="Example: Agumon">
+            <input type="submit" value="Submit">
+        </form>
+        <form id="levelForm">
+            <label for="digilevel">Enter a Digimon level: </label><br><br>
+            <input type="text" id="digilevel" name="digilevel" placeholder="Example: Rookie">
+            <input type="submit" value="Submit">
+        </form>
+    </h1>
+
+    <div class="holder">
+    </div>
+    <script src="fetchData.js"></script>
+</body>
+<script>
+    class Digimon {
+    constructor(element, name, img, level) {
+        this.element = element;
+        this.name = name;
+        this.img = img;
+        this.level = level;
+        let setLevel = level.toLowerCase();
+        if (setLevel != 'in training') {
+            this.element.setAttribute('class', `digimon ${setLevel}`)
+        } else {
+            this.element.setAttribute('class', 'digimon fresh')
+        }
+    }
+
+    renderElement() {
+        this.element.innerHTML = '';
+
+        const nameElement = document.createElement('p');
+        nameElement.classList.add('digimon_name');
+        nameElement.innerText = this.name;
+
+        const imgElement = document.createElement('img');
+        imgElement.src = this.img
+
+        const levelElement = document.createElement('p');
+        levelElement.classList.add('level');
+        levelElement.innerText = 'Level: ' + this.level;
+
+        this.element.appendChild(nameElement);
+        this.element.appendChild(imgElement);
+        this.element.appendChild(levelElement);
+    }
+}
+
+async function fetchData() {
+    const response = await fetch('https://digimon-api.vercel.app/api/digimon');
+    if (response.ok) {
+        const data = await response.json();
+        return data
+    }
+    return [];
+}
+
+fetchData()
+    .then((data) => {
+        const holder = document.querySelector('.holder');
+        holder.innerHTML = '  ';
+        for (let i = 0; i < data.length; i++) {
+            const digimonEl = document.createElement('div');
+            const digimonElement = new Digimon(digimonEl, data[i].name, data[i].img, data[i].level);
+            digimonElement.renderElement();
+            holder.appendChild(digimonEl);
+        }
+    })
+
+async function PassName(name) {
+    let setname = name.toLowerCase();
+    const response = await fetch(`https://digimon-api.vercel.app/api/digimon/name/${setname}`);
+    if (response.ok) {
+        const data = await response.json();
+        return data
+    }
+    return [];
+}
+
+document.getElementById('nameForm').addEventListener('submit', function (event) {
+    event.preventDefault(); //default behavior isn't compatible
+    const name = document.getElementById('diginame').value;
+    const holder = document.querySelector('.holder');
+    holder.innerHTML = ' ';
+    //on click it gets values and passes to function like default api request
+    PassName(name)
+        .then((data) => {
+            if (data.length > 0) { //checks for valid response
+                const digimonEl = document.createElement('div');
+                const digimonData = data[0]; //only 1 value 
+                const digimonElement = new Digimon(digimonEl, digimonData.name, digimonData.img, digimonData.level);
+                digimonElement.renderElement();
+                holder.appendChild(digimonEl);
+            } else {
+                holder.innerHTML = 'Invalid Response.';
+            }
+        });
+});
+
+async function PassLevel(level) {
+    let setlevel = level.toLowerCase();
+    const response = await fetch(`https://digimon-api.vercel.app/api/digimon/level/${setlevel}`);
+    if (response.ok) {
+        const data = await response.json();
+        return data
+    }
+    return [];
+}
+
+document.getElementById('levelForm').addEventListener('submit', function (event) {
+    event.preventDefault();
+    const level = document.getElementById('digilevel').value;
+    const holder = document.querySelector('.holder');
+    holder.innerHTML = ' ';
+    PassLevel(level)
+        .then((data) => {
+            if (data.length > 0) {
+                for (let i = 0; i < data.length; i++) {
+                    const digimonEl = document.createElement('div');
+                    const digimonElement = new Digimon(digimonEl, data[i].name, data[i].img, data[i].level);
+                    digimonElement.renderElement();
+                    holder.appendChild(digimonEl);
+                }
+            } else {
+                holder.innerHTML = 'Invalid Response.';
+            }
+        });
+});
+
+</script>
+<style>
+    body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Comfortaa', sans-serif;
+    justify-content: center;
+    background-color: black;
+}
+
+h1 {
+    align-items: center;
+    padding: 2rem;
+    background-color: orange;
+    font-size: 24pt;
+    font-weight: bold;
+    color: black;
+    margin: 0;
+    justify-content: space-evenly;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.holder {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 360px));
+    padding: 1rem;
+    margin-bottom: 2rem;
+    justify-content: space-evenly;
+    gap: 1.5rem;
+}
+
+.digimon {
+    padding: 1rem;
+    border-radius: 10px;
+    border-width: 5px;
+    border-color: darkgray;
+    border-style: solid;
+    align-items: center;
+}
+
+
+.level{
+    font-size: 18px;
+}
+
+.fresh {
+    background: lightblue;
+    border-radius: 10px;
+}
+
+.in_training {
+    background: darkcyan;
+    border-radius: 10px;
+}
+
+.rookie {
+    background: lightcoral;
+    border-radius: 10px;
+}
+
+.champion {
+    background: darkred;
+    border-radius: 10px;
+}
+
+.armor {
+    background: grey;
+    border-radius: 10px;
+}
+
+.mega {
+    background: goldenrod;
+    border-radius: 10px;
+}
+
+.ultimate {
+    background: black;
+    color: white;
+    border-radius: 10px;
+}
+
+.digimon_name {
+    font-size: 24px;
+}
+
+img {
+    max-width: 100%;
+    border-radius: 3px;
+    border-style: solid;
+    border-width: 3px;
+}
+
+input{
+    font-size: 24px;
+    font-family: 'Comfortaa', sans-serif;
+}
+
+</style>
+</html>

@@ -1,0 +1,21 @@
+{
+  "name": "week9class",
+  "version": "1.0.0",
+  "description": "class",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "nodejs",
+    "server"
+  ],
+  "author": "aronshrv@gmail.com",
+  "license": "ISC",
+  "dependencies": {
+    "fs": "^0.0.1-security",
+    "http": "^0.0.1-security",
+    "path": "^0.12.7"
+  }
+}
