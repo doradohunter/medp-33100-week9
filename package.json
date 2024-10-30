@@ -1,0 +1,27 @@
+{
+  "name": "medp-33100-week9",
+  "version": "1.0.0",
+  "description": "week 9 node js homework",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/isap630/medp-33100-week9.git"
+  },
+  "keywords": [
+    "nodejs",
+    "server"
+  ],
+  "author": "arlenispena630@gmail.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/isap630/medp-33100-week9/issues"
+  },
+  "homepage": "https://github.com/isap630/medp-33100-week9#readme",
+  "dependencies": {
+    "http": "^0.0.1-security"
+  }
+}
