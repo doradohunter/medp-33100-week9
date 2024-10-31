@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Spooky Halloween Site</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Eater&display=swap" rel="stylesheet">
+    
+    <style>
+      body {
+        background: #1b1b1b url("images/halloween.jpg") no-repeat center center fixed;
+        background-size: cover;
+        color: #f0e68c;
+        font-family: 'Eater', serif;
+        margin: 0;
+      }
+      .tophalf {
+        position: relative;
+        height: 100vh;
+      }
+      .container {
+        padding: 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .navbar a {
+        color: #f0e68c;
+        text-decoration: none;
+        padding: 10px 20px;
+        transition: color 0.3s ease;
+      }
+      .navbar a:hover {
+        color: #ff4500;
+      }
+      .search input[type="text"] {
+        padding: 10px;
+        width: 200px;
+        border-radius: 5px;
+        border: 1px solid #f0e68c;
+        background-color: #333;
+        color: #f0e68c;
+      }
+      .image-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: rgba(0, 0, 0, 0.6);
+      }
+      .overlay-text {
+        text-align: center;
+        color: #ff4500;
+      }
+      .overlay-text h2 {
+        font-size: 4em;
+        letter-spacing: 0.1em;
+        margin: 0;
+      }
+      .overlay-text p {
+        font-size: 1.5em;
+        margin: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <section class="tophalf">
+      <div class="container">
+        <div class="navbar">
+          <a href="index.html">Home</a>
+          <a href="index.html">Creepy Corner</a>
+          <a href="index.html">Best Costumes</a>
+        </div>
+        <form class="search" action="/action_page.php">
+          <input type="text" placeholder="Search ..." name="search" />
+        </form>
+      </div>
+      <div class="image-overlay">
+        <div class="overlay-text">
+          <h2>Happy Halloween</h2>
+          <p>Remember to check your candy before eating it...</p>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>
