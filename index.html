@@ -20,12 +20,25 @@
         /* background-size: 100vw 100vh; */
         background-repeat: no-repeat;
       }
-      h1 {
+      .glow {
         color: #ffffff;
         font-family: Griffy;
         text-align: center;
         font-size: 5em;
+        -webkit-animation: glow 1s ease-in-out infinite alternate;
+        -moz-animation: glow 1s ease-in-out infinite alternate;
+        animation: glow 1s ease-in-out infinite alternate;
       }
+      /* from w3 Schools */
+      @-webkit-keyframes glow {
+  from {
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #6500ac, 0 0 40px #6500ac, 0 0 50px #6500ac, 0 0 60px #6500ac, 0 0 70px #6500ac;
+  }
+  
+  to {
+    text-shadow: 0 0 20px #fff, 0 0 30px #c081fe, 0 0 40px #c081fe, 0 0 50px #c081fe, 0 0 60px #c081fe, 0 0 70px #c081fe, 0 0 80px #c081fe;
+  }
+}
       h2 {
         color: #ffffff;
         font-family: Griffy;
@@ -204,7 +217,7 @@
         />
       </header>
       <h2>Trick or Treat!</h2>
-      <h1>👻It's Halloween👻</h1>
+      <h1 class="glow">👻It's Halloween👻</h1>
       <p>Fun Fact: The tradition of dressing up in costumes dates back to the Celts, 
         who believed disguises would help them avoid being recognized by evil spirits.</p>
         <!-- Source - https://lavandamichelle.com/2024/09/18/31-fun-and-spooky-facts-about-halloween-you-never-knew/#:~:text=The%20tradition%20of%20dressing%20up%20in%20costumes%20dates%20back%20to%20the%20Celts%2C%20who%20believed%20disguises%20would%20help%20them%20avoid%20being%20recognized%20by%20evil%20spirits. -->
