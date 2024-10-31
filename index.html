@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Halloween 🎃</title>
+  <style>
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 400px;
+      font-family: 'Arial', sans-serif;
+      background-color: black;
+      color: orange;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .pumpkin {
+      font-size: 350px;
+      animation: pulse 1.5s infinite;
+      position: absolute;
+      left: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .text-container {
+      margin-left: 450px;
+      margin-top: 5px;
+      position: relative;
+    }
+
+    h1 {
+      font-size: 80px;
+      animation: flicker 2s infinite;
+      text-shadow: 0 0 10px orange, 0 0 20px red, 0 0 30px orange;
+    }
+
+    h2 {
+      font-size: 36px;
+    }
+
+    .fun-fact {
+      height: 40px; /* Fixed height to prevent movement */
+      position: absolute;
+      width: 100%;
+      font-size: 24px;
+      margin-top: 20px;
+      color: #f1c40f;
+      opacity: 0; /* Start hidden */
+      transition: opacity 2s ease-in-out;
+    }
+
+    .fun-fact.show {
+      opacity: 1;
+    }
+
+    @keyframes flicker {
+      0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+        opacity: 1;
+      }
+      20%, 24%, 55% {
+        opacity: 0;
+      }
+    }
+
+    @keyframes pulse {
+      0%, 100% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.1);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="pumpkin">🎃</div>
+  
+  <div class="text-container">
+    <h1>HAPPY HALLOWEEN</h1>
+    <h2>🎃 Fun Halloween Facts 🎃</h2>
+    <p id="fact" class="fun-fact">Get ready for some spooky trivia...</p>
+  </div>
+
+  <script>
+    const facts = [
+      "Jack-o'-lanterns were originally carved from turnips, potatoes, or beets!",
+      "Candy corn was originally called 'chicken feed' and became popular in the 1950s.",
+      "Trick-or-treating comes from 'souling', an ancient practice where children prayed for the souls of the dead.",
+      "Pumpkins are technically fruits and belong to the Cucurbitaceae family, which also includes cucumbers and melons.",
+      "The fear of Halloween is called Samhainophobia.",
+      "Apple bobbing is a Halloween tradition that was once a fortune-telling game for marriage.",
+      "Halloween dates back to the ancient Celts of Europe.",
+      "In China, people light dragon-shaped lanterns to celebrate Halloween.",
+      "New York City hosts the largest Halloween parade in the United States.",
+      "Around a quarter of all US candy sales are for Halloween!"
+    ];
+
+    let factIndex = 0;
+
+    function showFunFact() {
+      const factElement = document.getElementById('fact');
+      factElement.textContent = facts[factIndex];
+      factElement.classList.add('show')
+      factIndex = (factIndex + 1) % facts.length;
+
+      setTimeout(() => {
+        factElement.classList.remove('show'); // Hide after 6 seconds
+      }, 6000);
+    }
+
+    showFunFact();
+    setInterval(showFunFact, 8000);
+  </script>
+</body>
+</html>
