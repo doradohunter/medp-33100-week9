@@ -1,11 +1,72 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <title>title</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Halloween 🎃</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: black;
+      color: orange;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    h1 {
+      font-size: 80px;
+      margin-top: 250px;
+      animation: flicker 2s infinite;
+    }
+
+    .ghost {
+      position: absolute;
+      font-size: 28px;
+      opacity: 0;
+      animation: fade 3s ease-in-out infinite;
+    }
+    @keyframes flicker {
+      0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+        opacity: 1;
+      }
+      20%, 24%, 55% {
+        opacity: 0;
+      }
+    }
+    @keyframes fade {
+      0%, 100% { opacity: 0; }
+      50% { opacity: 1; }
+    }
+  </style>
 </head>
 
 <body>
-    <h1>Hello world!</h1>
+
+  <h1>HAPPY HALLOWEEN</h1>
+
+  <script>
+    const emojis = ['🎃', '👻', '🕸️', '🪓', '🩸', '🍬', '🍭'];
+
+    function createEmojis() {
+      const emojiCount = 10;
+
+    for (let i = 0; i < emojiCount; i++) {
+        const emojiElement = document.createElement('div');
+        emojiElement.classList.add('ghost');
+
+    emojiElement.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+
+    emojiElement.style.top = Math.random() * window.innerHeight + 'px';
+    emojiElement.style.left = Math.random() * window.innerWidth + 'px';
+    document.body.appendChild(emojiElement);
+
+    setTimeout(() => {
+        emojiElement.remove();
+    }, 3000);
+      }
+    }
+    
+    setInterval(createEmojis, 1000);
+  </script>
 </body>
 </html>
