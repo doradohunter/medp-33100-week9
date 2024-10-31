@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Halloween Theme Page</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        background-color: #202020;
+        color: #ddd;
+      }
+
+      .container {
+        overflow: hidden;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
+      }
+
+      h1,
+      button {
+        z-index: 2;
+      }
+
+      h1 {
+        font-size: 5rem;
+        text-align: center;
+      }
+
+      button {
+        font-size: 1rem;
+        background-color: #666;
+        color: white;
+        padding: 10px 30px;
+        border: solid #ddd;
+        cursor: pointer;
+      }
+
+      .star {
+        z-index: 1;
+        position: absolute;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Happy Halloween</h1>
+      <div>
+        <button>click me for surprise!</button>
+      </div>
+    </div>
+
+    <script>
+      const stars = '.';
+      const halloweenJokes = [
+        'Why did the vampire get a job at the blood bank? It was in his veins!',
+        'What kind of music do mummies listen to? Wrap music!',
+        'Why did the ghost go to the party? To lift his spirits!',
+        'What do skeletons say before eating? Bone appetit!',
+        "Why don't mummies take vacations? They're afraid they'll unwind!",
+        'What does a witch use to keep her hair in place? Scare-spray!',
+        'Why did Dracula become a vegetarian? His doctor said steaks were bad for his heart!',
+        "What is a vampire's favorite holiday? Fangsgiving!",
+        'How do ghosts send letters? Through the ghost office!',
+        'Why did the scarecrow win an award? He was outstanding in his field!',
+      ];
+
+      function displayStars() {
+        const container = document.querySelector('.container');
+
+        for (let i = 0; i < 150; i++) {
+          const xAxis = Math.floor(Math.random() * 95) + 1;
+          const yAxis = Math.floor(Math.random() * 95) + 1;
+          const starDiv = document.createElement('div');
+          starDiv.classList.add('star');
+          starDiv.textContent = stars;
+          starDiv.style.left = xAxis + 'vw';
+          starDiv.style.top = yAxis + 'vh';
+          container.appendChild(starDiv);
+        }
+      }
+
+      function surprise() {
+        const button = document.querySelector('button');
+        const h1 = document.querySelector('h1');
+
+        button.addEventListener('click', () => {
+          const jokeIndex = Math.floor(Math.random() * 10);
+          h1.textContent = halloweenJokes[jokeIndex];
+          button.textContent = 'click for new halloween related joke!';
+        });
+      }
+
+      displayStars();
+      surprise();
+    </script>
+  </body>
+</html>
