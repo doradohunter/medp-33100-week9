@@ -12,8 +12,8 @@ const server = createServer((request, response) => {
 //   response.setHeader('Content-Type', 'text/plain');
 //   response.end('Hello World');
 
-  const pathToIndexHtml = path.join(_dirname, 'index.html');
-  console/log(pathToIndexHtml);
+  const pathToIndexHtml = path.join(__dirname, 'index.html');
+  console.log(pathToIndexHtml);
   fs.readFile(pathToIndexHtml, 'utf8', (err, data) => {
     if (err) {
       console.error(err);
