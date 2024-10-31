@@ -1,0 +1,13 @@
+{
+  "name": "halloween-server",
+  "version": "1.0.0",
+  "description": "A simple Node.js server for Halloween-themed page",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {},
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}
