@@ -1,4 +1,4 @@
-const { createServer } = require('node:http');
+const { createServer } = require('http');
 const fs = require('fs');
 const path = require('path');
 
